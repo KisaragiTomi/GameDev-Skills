@@ -1,0 +1,14 @@
+# Ignore every skill folder/file by default.
+/*
+
+# Keep repository metadata files.
+!/.gitignore
+!/README.md
+
+# Whitelist only this skill.
+!/houdini-node-translator/
+!/houdini-node-translator/**
+
+# Ignore conflict files anywhere, including inside the whitelist.
+*冲突*
+**/*冲突*
