@@ -1,0 +1,4 @@
+interface:
+  display_name: "Normalize MD Writing"
+  short_description: "Alias for project Markdown style"
+  default_prompt: "Use $project-md-style to standardize this Markdown document while preserving its meaning."

@@ -8,6 +8,10 @@
 # Whitelist only this skill.
 !/houdini-node-translator/
 !/houdini-node-translator/**
+!/project-md-style/
+!/project-md-style/**
+!/normalize-md-writing/
+!/normalize-md-writing/**
 
 # Ignore conflict files anywhere, including inside the whitelist.
 *冲突*

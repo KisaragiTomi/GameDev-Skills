@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Markdown Style"
+  short_description: "Markdown docs with SVG diagrams"
+  default_prompt: "Use $project-md-style to write, revise, normalize, or add referenced SVG diagrams to this project Markdown doc."
