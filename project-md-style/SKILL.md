@@ -1,6 +1,6 @@
 ---
 name: project-md-style
-description: Use when writing, editing, reviewing, normalizing, or refactoring project Markdown (.md) documentation, including architecture notes, pipeline docs, asset/property docs, API notes, setup guides, code-adjacent specifications, and SVG diagrams referenced by those docs. Also use for 规范化MD编写, 统一Markdown风格, 整理文档, 改写字段说明, drawing or updating SVG documentation diagrams, converting field tables into inline comments, and cleaning up technical docs while preserving meaning. Enforce concise source-grounded structure, stable headings, language consistency, labeled code fences, appropriate schema tables, concise same-line comments, referenced SVG artifacts, and unique background styles for core classes or nodes.
+description: Use when writing, editing, reviewing, normalizing, or refactoring project Markdown (.md) documentation, including architecture notes, pipeline docs, asset/property docs, API notes, setup guides, code-adjacent specifications, and SVG diagrams referenced by those docs. Also use for 规范化MD编写, 统一Markdown风格, 整理文档, 改写字段说明, drawing or updating SVG documentation diagrams, converting field tables into inline comments, and cleaning up technical docs while preserving meaning. Enforce concise source-grounded structure, stable headings, language consistency, labeled code fences, appropriate schema tables, concise same-line comments, referenced SVG artifacts, unique background styles for core classes or nodes, and SVG pattern texture/background color differences fixed to 20% after opacity blending.
 ---
 
 # Project Markdown Style
@@ -133,7 +133,12 @@ Replace tables with same-line comments when:
 - Give stable dimensions to nodes, lanes, labels, and legends so text and arrows do not overlap.
 - Use semantic SVG classes such as `.autoobject`, `.scene-voxel`, or `.runtime-output` rather than anonymous repeated styling.
 - Give core classes, core resources, or central runtime states visually distinct backgrounds. Prefer subtle patterns in `<defs>` such as dots, stripes, grids, crosshatch, or tinted fills over relying only on color.
-- Keep texture colors close to the node's base background: after opacity blending, the visible texture/background color difference must stay within 20% (roughly <=51 RGB levels per channel or <=20 HSL lightness points). Use same-hue, slightly lighter/darker pattern fills or low-opacity strokes instead of high-contrast dots, stripes, or grids.
+- Keep texture colors deterministically aligned with the node's base background: after opacity blending, every intentional SVG pattern mark must have a visible texture/background difference fixed at 20% of the RGB channel range.
+  - Measure the visible difference after alpha blending, not the raw `fill` colors. For each pattern mark, compute `visible = base * (1 - opacity) + texture * opacity`, then measure `max(abs(visible.r - base.r), abs(visible.g - base.g), abs(visible.b - base.b))`.
+  - The target difference is exactly `51` RGB levels, because `51 / 255 = 20%`. Allow at most `±1` level for rounding, antialiasing, or browser color quantization.
+  - Choose texture `opacity` from the raw color distance: `opacity = 51 / max(abs(texture - base))`, clamped to `0..1`. Prefer same-hue, slightly darker or lighter texture fills so this opacity remains readable but not harsh.
+  - Apply the same 20% rule to dots, stripes, grids, crosshatches, and other repeated background marks used inside `<pattern>`. Decorative shadows, arrows, labels, foreground icons, and non-pattern node fills are not texture marks.
+  - When changing a patterned background, re-run a color-difference check and render/screenshot-check the edited SVG before finishing.
 - Reuse a background style consistently for the same core concept across related diagrams.
 - Keep non-core/support nodes quieter so the primary classes remain visually scannable.
 - Include a small legend only when the unique background styles are not obvious from labels.
@@ -159,4 +164,4 @@ Replace tables with same-line comments when:
 - Nearby field tables are not stale duplicates of edited examples.
 - Overview/comparison tables were not flattened unnecessarily.
 - New SVGs are referenced by the owning Markdown document and any graph index used by the project.
-- Core classes or central nodes in SVGs have unique, readable background styles, with texture colors kept within the fixed 20% background-difference rule.
+- Core classes or central nodes in SVGs have unique, readable background styles, with every pattern texture mark fixed to the 20% visible background-difference rule (`51 ± 1` RGB levels after opacity blending).

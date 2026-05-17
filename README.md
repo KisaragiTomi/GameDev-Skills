@@ -6,4 +6,3 @@ Currently tracked whitelist:
 
 - `houdini-node-translator/`
 - `project-md-style/`
-- `normalize-md-writing/`
