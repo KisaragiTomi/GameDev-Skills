@@ -133,6 +133,7 @@ Replace tables with same-line comments when:
 - Give stable dimensions to nodes, lanes, labels, and legends so text and arrows do not overlap.
 - Use semantic SVG classes such as `.autoobject`, `.scene-voxel`, or `.runtime-output` rather than anonymous repeated styling.
 - Give core classes, core resources, or central runtime states visually distinct backgrounds. Prefer subtle patterns in `<defs>` such as dots, stripes, grids, crosshatch, or tinted fills over relying only on color.
+- Keep texture colors close to the node's base background: after opacity blending, the visible texture/background color difference should stay within about 5% (roughly <=13 RGB levels per channel or <=5 HSL lightness points). Use same-hue, slightly lighter/darker pattern fills or low-opacity strokes instead of high-contrast dots, stripes, or grids.
 - Reuse a background style consistently for the same core concept across related diagrams.
 - Keep non-core/support nodes quieter so the primary classes remain visually scannable.
 - Include a small legend only when the unique background styles are not obvious from labels.
@@ -158,4 +159,4 @@ Replace tables with same-line comments when:
 - Nearby field tables are not stale duplicates of edited examples.
 - Overview/comparison tables were not flattened unnecessarily.
 - New SVGs are referenced by the owning Markdown document and any graph index used by the project.
-- Core classes or central nodes in SVGs have unique, readable background styles.
+- Core classes or central nodes in SVGs have unique, readable background styles, with texture colors kept within the 5% background-difference rule.
