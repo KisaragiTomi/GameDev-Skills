@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "color_difference_rule": {
+    "space": "sRGB",
+    "measurement": "max_channel_difference_after_opacity_blend",
+    "target_percent": 20,
+    "target_rgb_levels": 51,
+    "allowed_rgb_level_error": 1,
+    "formula": "visible = base * (1 - opacity) + texture * opacity; max(abs(visible - base)) must be 51 ± 1"
+  },
+  "usage": {
+    "svg_defs": "Copy matching entries into the SVG <defs> block and reference them from semantic classes such as .autoobject-dot or .sv-stripe.",
+    "base_color": "Set the first child rect fill to the node base color.",
+    "opacity": "Use the provided opacity when the texture color matches the entry. If either base or texture color changes, recompute opacity as 51 / max(abs(texture - base)).",
+    "scope": "Use these only for subtle core-node background textures. Do not apply this rule to text, arrows, shadows, badges, icons, or non-pattern foreground marks."
+  },
+  "textures": {
+    "autoobject-dot-cyan": {
+      "concept": "AutoObject runtime/base nodes",
+      "class_name": "autoobject-dot",
+      "pattern_id": "autoobject-dot-bg",
+      "type": "dots",
+      "tile": {
+        "width": 12,
+        "height": 12
+      },
+      "base_fill": "#cffafe",
+      "texture_fill": "#0891b2",
+      "opacity": 0.156281,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"autoobject-dot-bg\" patternUnits=\"userSpaceOnUse\" width=\"12\" height=\"12\">",
+        "  <rect width=\"12\" height=\"12\" fill=\"#cffafe\"/>",
+        "  <circle cx=\"3\" cy=\"3\" r=\"1.25\" fill=\"#0891b2\" opacity=\"0.256281\"/>",
+        "  <circle cx=\"9\" cy=\"9\" r=\"1.25\" fill=\"#0891b2\" opacity=\"0.256281\"/>",
+        "</pattern>"
+      ]
+    },
+    "autoobject-dot-green": {
+      "concept": "AutoObject runtime/base nodes on green asset lanes",
+      "class_name": "autoobject-dot",
+      "pattern_id": "autoobject-dot-bg",
+      "type": "dots",
+      "tile": {
+        "width": 12,
+        "height": 12
+      },
+      "base_fill": "#dcfce7",
+      "texture_fill": "#16a34a",
+      "opacity": 0.157576,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"autoobject-dot-bg\" patternUnits=\"userSpaceOnUse\" width=\"12\" height=\"12\">",
+        "  <rect width=\"12\" height=\"12\" fill=\"#dcfce7\"/>",
+        "  <circle cx=\"3\" cy=\"3\" r=\"1.25\" fill=\"#16a34a\" opacity=\"0.257576\"/>",
+        "  <circle cx=\"9\" cy=\"9\" r=\"1.25\" fill=\"#16a34a\" opacity=\"0.257576\"/>",
+        "</pattern>"
+      ]
+    },
+    "scene-voxel-stripe-amber": {
+      "concept": "SV write payload, record, or SceneVoxel commit nodes",
+      "class_name": "sv-stripe",
+      "pattern_id": "sv-stripe-bg",
+      "type": "horizontal_stripes",
+      "tile": {
+        "width": 10,
+        "height": 10
+      },
+      "base_fill": "#fef3c7",
+      "texture_fill": "#d97706",
+      "opacity": 0.164249,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"sv-stripe-bg\" patternUnits=\"userSpaceOnUse\" width=\"10\" height=\"10\">",
+        "  <rect width=\"10\" height=\"10\" fill=\"#fef3c7\"/>",
+        "  <rect y=\"1\" width=\"10\" height=\"2\" fill=\"#d97706\" opacity=\"0.264249\"/>",
+        "  <rect y=\"6\" width=\"10\" height=\"1.5\" fill=\"#d97706\" opacity=\"0.264249\"/>",
+        "</pattern>"
+      ]
+    },
+    "scene-voxel-stripe-blue": {
+      "concept": "TargetSV, TargetSV_B, SceneVoxel, or state nodes on blue lanes",
+      "class_name": "sv-stripe",
+      "pattern_id": "sv-stripe-bg",
+      "type": "horizontal_stripes",
+      "tile": {
+        "width": 10,
+        "height": 10
+      },
+      "base_fill": "#dbeafe",
+      "texture_fill": "#0284c7",
+      "opacity": 0.135023,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"sv-stripe-bg\" patternUnits=\"userSpaceOnUse\" width=\"10\" height=\"10\">",
+        "  <rect width=\"10\" height=\"10\" fill=\"#dbeafe\"/>",
+        "  <rect y=\"1\" width=\"10\" height=\"2\" fill=\"#0284c7\" opacity=\"0.235023\"/>",
+        "  <rect y=\"6\" width=\"10\" height=\"1.5\" fill=\"#0284c7\" opacity=\"0.235023\"/>",
+        "</pattern>"
+      ]
+    },
+    "scene-voxel-stripe-royal-blue": {
+      "concept": "SV pipeline nodes using royal-blue accents",
+      "class_name": "sv-stripe",
+      "pattern_id": "sv-stripe-bg",
+      "type": "horizontal_stripes",
+      "tile": {
+        "width": 10,
+        "height": 10
+      },
+      "base_fill": "#dbeafe",
+      "texture_fill": "#2563eb",
+      "opacity": 0.18022,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"sv-stripe-bg\" patternUnits=\"userSpaceOnUse\" width=\"10\" height=\"10\">",
+        "  <rect width=\"10\" height=\"10\" fill=\"#dbeafe\"/>",
+        "  <rect y=\"1\" width=\"10\" height=\"2\" fill=\"#2563eb\" opacity=\"0.28022\"/>",
+        "  <rect y=\"6\" width=\"10\" height=\"1.5\" fill=\"#2563eb\" opacity=\"0.28022\"/>",
+        "</pattern>"
+      ]
+    },
+    "descriptor-grid-green": {
+      "concept": "AutoVoxelDescriptor or descriptor-owned semantic source nodes",
+      "class_name": "descriptor-grid",
+      "pattern_id": "descriptor-grid",
+      "type": "grid_diagonal",
+      "tile": {
+        "width": 9.3334,
+        "height": 9.3334
+      },
+      "base_fill": "#dcfce7",
+      "texture_stroke": "#16a34a",
+      "opacity": 0.157576,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"descriptor-grid\" patternUnits=\"userSpaceOnUse\" width=\"9.3334\" height=\"9.3334\">",
+        "  <rect width=\"9.3334\" height=\"9.3334\" fill=\"#dcfce7\"/>",
+        "  <path d=\"M4.6667 0H0V4.6667\" stroke=\"#16a34a\" stroke-width=\"0.3333\" opacity=\"0.257576\"/>",
+        "  <path d=\"M0 4.6667L4.6667 0\" stroke=\"#16a34a\" stroke-width=\"0.3333\" opacity=\"0.257576\"/>",
+        "</pattern>"
+      ]
+    },
+    "legacy-hatch-gray": {
+      "concept": "Legacy, compatibility, or deprecated mirror nodes",
+      "class_name": "legacy-hatch",
+      "pattern_id": "legacy-hatch",
+      "type": "diagonal_hatch",
+      "tile": {
+        "width": 10,
+        "height": 10
+      },
+      "base_fill": "#f1f5f9",
+      "texture_fill": "#64748b",
+      "opacity": 0.161702,
+      "visible_max_channel_difference": 51,
+      "svg": [
+        "<pattern id=\"legacy-hatch\" patternUnits=\"userSpaceOnUse\" width=\"10\" height=\"10\" patternTransform=\"rotate(45)\">",
+        "  <rect width=\"10\" height=\"10\" fill=\"#f1f5f9\"/>",
+        "  <rect x=\"0\" y=\"0\" width=\"10\" height=\"2\" fill=\"#64748b\" opacity=\"0.361702\"/>",
+        "</pattern>"
+      ]
+    }
+  }
+}
