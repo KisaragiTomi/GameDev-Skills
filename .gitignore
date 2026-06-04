@@ -5,13 +5,25 @@
 !/.gitignore
 !/README.md
 
-# Whitelist only this skill.
+# Whitelist tracked skills.
+!/compute-shader-authoring/
+!/compute-shader-authoring/**
 !/houdini-node-translator/
 !/houdini-node-translator/**
 !/project-md-style/
 !/project-md-style/**
 !/normalize-md-writing/
 !/normalize-md-writing/**
+
+# Ignore local/runtime directories even inside whitelisted skills.
+.venv
+.venv/**
+**/.venv
+**/.venv/**
+backup
+backup/**
+**/backup
+**/backup/**
 
 # Ignore conflict files anywhere, including inside the whitelist.
 *冲突*
